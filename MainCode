@@ -1,0 +1,57 @@
+using System;
+
+public static class Bob
+{
+    public static string Response(string statement)
+    {
+
+        if(string.IsNullOrWhiteSpace(statement))
+            return "Fine. Be that way!"; 
+        //else if (statement.ToUpper() == statement && statement.EndsWith("?"))
+        else if(HasLetters(statement) && statement.TrimEnd().EndsWith("?"))    
+            return "Calm down, I know what I'm doing!";
+        //else if(statement.Trim().ToUpper() == statement && statement.ToLower() != statement)
+        else if(HasLetters(statement))    
+            return "Whoa, chill out!";
+        else if (statement.TrimEnd().EndsWith("?"))
+            return "Sure.";
+        else 
+            return "Whatever.";
+
+        
+
+        
+        // bool isUpperCase = Char.IsUpper(statement, 1);
+        
+        
+        // if(isUpperCase == true && statement.Contains("?"))
+        //     return "Calm down, I know what I'm doing!";
+        // else if(isUpperCase == true)
+        //     return "Whoa, chill out!";
+        // else if(statement.Contains("?"))
+        //     return "Sure.";
+        // else if (string.IsNullOrWhiteSpace(statement) || statement == "")
+        //     return "Fine. Be that way!";
+        // else 
+        //     return "Whatever.";
+
+        
+        throw new NotImplementedException("You need to implement this function.");
+    }
+private static bool HasLetters(string statement)
+        {
+            bool hasLetters = false; 
+            foreach(char c in statement)
+            {
+                if(char.IsLetter(c))
+                {
+                    hasLetters = true;
+                    if(!char.IsUpper(c))
+                    {
+                        return false;
+                    }
+                }
+            }
+        return hasLetters;
+        }
+}
